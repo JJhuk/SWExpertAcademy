@@ -1,0 +1,22 @@
+//수 자체를 string에 담은 다음, 수 하나하나가 문자이므로, -'0' 해주면 원하는 정수형 수가 나온다.
+//나온 결과를 sum에 더해주기만 하면 끝.
+
+
+#include <cstdio>
+#include <iostream>
+#include <string>
+ 
+using namespace std;
+ 
+int main(void) {
+    ios::sync_with_stdio(false);
+    string s;
+    cin >> s;
+    int sum = 0;
+    for (int i = 0; i < s.length(); i++) {
+        sum += s[i] - '0';
+    }
+    cout << sum;
+ 
+    return 0;
+}
