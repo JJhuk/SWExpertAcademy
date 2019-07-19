@@ -1,0 +1,14 @@
+#include <cstdio>
+#include <iostream>
+ 
+using namespace std;
+ 
+int main(void) {
+    ios::sync_with_stdio(false);
+    int input;
+    cin >> input;
+    for (int i = 0; i < input; i++)
+        cout << "#";
+ 
+    return 0;
+}
