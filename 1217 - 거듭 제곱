@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+ 
+int print_test_case = 1;
+int test_case = 10;
+int a, n;
+ 
+int mult(int a,int n,int cnt) { //pow함수쓰는사람들 저주할꺼임.
+    if (n == cnt)
+        return a;
+    return  a * mult(a,n,cnt+1);
+}
+ 
+int main(void) {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    while (test_case--) {
+        int ans = 0;
+        cin >> print_test_case;
+        cin >> a >> n;
+        cout << "#" << print_test_case << " " << mult(a,n,1) << "\n";
+    }
+    return 0;
+}
