@@ -1,0 +1,42 @@
+#include <cstdio>
+#include <string>
+using namespace std;
+int test_case = 10;
+int print_test = 1;
+char map[8][8];
+int find_len;
+
+//상하좌우 체크하면 중복이 생김.
+//그래서 오른쪽 왼쪽만 체크해주면됨.
+bool check_str(string &s) {   //회문인지 check
+	string temp = "";
+	for (int i = s.length() - 1; i >= 0; i--) 
+		temp += s[i];
+	return temp == s ? true : false;
+}
+int main(void) {
+	while (test_case--) {
+		int ans = 0;
+		scanf("%d", &find_len);
+		for (int i = 0; i < 8; i++) 
+			for(int j=0;j<8;j++) 
+				scanf(" %c", &map[i][j]);
+		for (int i = 0; i < 8 ; i++) {  
+			for (int j = 0; j < 8 ; j++) {
+				for (int k = 0; k < 2; k++) {	//오른쪽, 아래
+					string temp = "";
+					for (int z = 0; z < find_len; z++) {
+						if (k == 0 && j+find_len  <= 8 ) 	//오른쪽으로
+							temp += map[i][j + z];
+						else if(k==1 && i + find_len <= 8)  //왼쪽으로
+							temp += map[i + z][j];
+					}
+					if (temp.length() == find_len && check_str(temp))
+						ans++;
+				}
+			}
+		}
+		printf("#%d %d\n", print_test++, ans);
+	}
+	return 0;
+}
